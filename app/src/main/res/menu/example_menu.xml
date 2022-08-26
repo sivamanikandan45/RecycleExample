@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/search"
+        android:title="search"
+        android:icon="@drawable/search"
+        app:showAsAction="ifRoom|collapseActionView"
+        app:actionViewClass="androidx.appcompat.widget.SearchView"
+        />
+    <!--app:actionViewClass="android.widget.SearchView"-->
+    <!--app:actionViewClass="androidx.appcompat.widget.SearchView"
+-->
+    <item android:title="Add">
+        <menu>
+            <item android:title="Add First Item"
+                android:id="@+id/add_first"/>
+            <item android:title="Add Last Item"
+                android:id="@+id/add_last"/>
+            <item android:id="@+id/add_five_items"
+                android:title="Add Five Items"/>
+        </menu>
+    </item>
+
+    <item android:title="Delete">
+        <menu>
+            <item android:title="Delete First Item"
+                android:id="@+id/delete_first"/>
+            <item android:title="Delete Last Item"
+                android:id="@+id/delete_last"/>
+            <item android:title="Delete First Five"
+                android:id="@+id/delete_first_five"/>
+        </menu>
+    </item>
+
+    <!--<item android:title="Hello"
+        app:showAsAction="never"
+        android:id="@+id/option3"/>-->
+</menu>
