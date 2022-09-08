@@ -41,39 +41,26 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater=menuInflater
         inflater.inflate(R.menu.example_menu,menu)
-        val searchView=menu!!.findItem(R.id.search).actionView as SearchView
+        val searchView=menu?.findItem(R.id.search)?.actionView as SearchView
+       // val searchView=menu.fin
         //searchView.queryHint="Search movie..."
 
         searchView.setOnQueryTextListener(object :SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
-                /*val sublist:MutableList<String> = mutableListOf()
-                for(a in list) {
-                    if (a.lowercase() == query.toString()) {
-                        sublist.add(a)
-                    }
-                }
-                adapter.setData(sublist)
-                adapter.notifyDataSetChanged()
-                return true*/
                 return false
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
                 val sublist:MutableList<String> = mutableListOf()
                 for(a in list) {
-                    if (a.lowercase().contains(newText.toString())) {
+                    if (a.lowercase().contains(newText.toString().lowercase())) {
                         sublist.add(a)
                     }
                 }
-                //val a=ArrayList(list)
-                //a.filter.filter(a)
-                //adapter.
-
-                    adapter.setData(sublist)
-                    adapter.notifyDataSetChanged()
+                adapter.setData(sublist)
+                adapter.notifyDataSetChanged()
                 return true
             }
-
         })
         return true
     }
