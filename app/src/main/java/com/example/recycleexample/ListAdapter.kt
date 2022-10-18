@@ -131,7 +131,7 @@ class ListAdapter() : RecyclerView.Adapter<com.example.recycleexample.ListAdapte
         notifyItemRangeInserted(0,5)
     }
 
-    fun setData(list: MutableList<String>) {
+    fun  setData(list: MutableList<String>) {
         this.list=list
     }
 

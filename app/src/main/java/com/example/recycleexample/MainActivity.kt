@@ -1,5 +1,8 @@
 package com.example.recycleexample
 
+import android.app.SearchManager
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
@@ -41,11 +44,20 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater=menuInflater
         inflater.inflate(R.menu.example_menu,menu)
+        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
         val searchView=menu?.findItem(R.id.search)?.actionView as SearchView
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
+        //searchView.isSubmitButtonEnabled=true
+        //searchView.setIconifiedByDefault(false)
+        /*searchView.setOnClickListener {
+            *//*val intent= Intent(this,SearchableActivity::class.java)
+            intent.action=Intent.ACTION_SEARCH
+            startActivity(intent)*//*
+        }*/
        // val searchView=menu.fin
         //searchView.queryHint="Search movie..."
 
-        searchView.setOnQueryTextListener(object :SearchView.OnQueryTextListener{
+        /*searchView.setOnQueryTextListener(object :SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return false
             }
@@ -62,11 +74,18 @@ class MainActivity : AppCompatActivity() {
                 return true
             }
         })
+        return true*/
         return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
+            /*R.id.search->{
+                val intent= Intent(this,SearchableActivity::class.java)
+                intent.action=Intent.ACTION_SEARCH
+                startActivity(intent)
+                return true
+            }*/
             R.id.add_first->{
                 adapter.insertFirstItem()
                 return true
