@@ -29,8 +29,8 @@ class MainActivity : AppCompatActivity() {
         //manager.orientation=LinearLayoutManager.HORIZONTAL
         adapter=ListAdapter()
         adapter.setData(list)
-        recycle.layoutManager=manager
         recycle.adapter=adapter
+        recycle.layoutManager=manager
         adapter.setOnItemClickListener(object:ListAdapter.ItemClickListener{
             override fun onItemClick(position: Int) {
                 println("$position is clicked")
